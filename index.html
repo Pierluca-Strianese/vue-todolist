@@ -33,6 +33,7 @@
                         v-for="(todo, i) in todos" 
                         class="task" 
                         :class="{barrato: todo.done == 'true'}"
+                        @click="revertDone(i)"
                     >
                         {{todo.text}}
                         <i class="fas fa-times" @click="deleteItem(i)"></i>

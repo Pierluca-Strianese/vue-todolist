@@ -36,6 +36,11 @@ const app = Vue.createApp ({
 
         deleteItem(i) {
             this.todos.splice(i, 1)
+        },
+
+        revertDone(i) {
+            let done = todos.done(i);
+            this.todos.done(i) = !done;
         }
     },
 
