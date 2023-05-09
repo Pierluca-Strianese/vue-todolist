@@ -29,7 +29,11 @@
 
             <div class="task_container text-center mt-5">
                 <ul v-if="todos.length != 0">
-                    <li v-for="(todo, i) in todos" class="task">
+                    <li 
+                        v-for="(todo, i) in todos" 
+                        class="task" 
+                        :class="{barrato: todo.done == 'true'}"
+                    >
                         {{todo.text}}
                         <i class="fas fa-times" @click="deleteItem(i)"></i>
                     </li>
