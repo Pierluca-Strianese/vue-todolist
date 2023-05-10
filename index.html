@@ -11,35 +11,49 @@
 </head>
 <body>
     <header>
-        <!-- <div class="logo">
-            <img src="" alt="">
-        </div> -->
+        <h1 class="text-center m-5"> Lista delle cose da fare di Pierluca </h1>
     </header>
 
     <body>
         <div id="root" class="container">
 
             <div class="new_class text-center pt-5">
-                <input @keyup.enter="addTodo" type="text" placeholder="New Task" v-model="newTodoText">
-                <button @click="addTodo"> Aggiungi </button>
+                <p class="d-inline"> Inserisci quì la nuova Task: </p>
+                <input 
+                    @keyup.enter="addTodo" 
+                    type="text" 
+                    class="me-3 ms-1 rounded-2 p-1"
+                    placeholder="New Task" 
+                    v-model="newTodoText"
+                >
+                <button 
+                    class="btn btn-primary d-block mx-auto mt-3 rounded-4" 
+                    @click="addTodo"
+                > Aggiungi </button>
                 <div v-show="inputError" class="error">
                     <small class="text-danger"> Devi inserire una task di almeno 5 caretteri</small>
                 </div>
             </div>
 
-            <div class="task_container text-center mt-5">
+            <div class="task_container mt-5 p-2">
                 <ul v-if="todos.length != 0">
                     <li 
                         v-for="(todo, i) in todos" 
-                        class="task" 
-                        :class="{barrato: todo.done == true}"
-                        @click="revertDone(i)"
+                        :key="todo.text"
+                        class="task m-2 p-3 rounded-3" 
+                        :class="{barrato: todo.done}"
+                        @click="revertDone()"
                     >
                         {{todo.text}}
-                        <i class="fas fa-times" @click="deleteItem(i)"></i>
+                        <div class="delete">
+                            <i 
+                                class="fas fa-times p-1 border"
+                                @click="deleteItem(i)"
+                            ></i>
+                        </div>
                     </li>
                 </ul>
-                <h2 v-else> NON CI SONO TASK 🤪 </h2>
+                <h3 class="text-center p-2" v-else> NON CI SONO TASK 🤪 </h3>
             </div>
         </div>
     </body>

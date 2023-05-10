@@ -45,9 +45,12 @@ const app = Vue.createApp ({
             this.todos.splice(i, 1)
         },
 
-        revertDone(i) {
-            let done = todos.done(i);
-            this.todos.done(i) = !done;
+        revertDone() {
+            if (this.todos.done == false) {
+                this.todos.done = true;
+            } else {
+                this.todos.done = false;
+            }
         }
     },
 

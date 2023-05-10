@@ -1,3 +1,24 @@
+.task_container ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.task_container {
+    background-color: aliceblue;
+    margin-inline: auto;
+    width: 400px;
+}
+
+li {
+    display: flex;
+    background-color:whitesmoke;
+    justify-content: space-between;
+}
+
 .barrato {
     text-decoration: line-through;
+}
+
+i {
+    cursor: pointer;
 }
