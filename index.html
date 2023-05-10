@@ -42,7 +42,7 @@
                         :key="todo.text"
                         class="task m-2 p-3 rounded-3" 
                         :class="{barrato: todo.done}"
-                        @click="revertDone()"
+                        @click="revertDone(i)"
                     >
                         {{todo.text}}
                         <div class="delete">
