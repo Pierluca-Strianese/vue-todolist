@@ -20,7 +20,7 @@
         <div id="root" class="container">
 
             <div class="new_class text-center pt-5">
-                <input @keyup.enter="addTodo" type="text" placeholder="New Task" v-model="newTodo">
+                <input @keyup.enter="addTodo" type="text" placeholder="New Task" v-model="newTodoText">
                 <button @click="addTodo"> Aggiungi </button>
                 <div v-show="inputError" class="error">
                     <small class="text-danger"> Devi inserire una task di almeno 5 caretteri</small>
@@ -32,7 +32,7 @@
                     <li 
                         v-for="(todo, i) in todos" 
                         class="task" 
-                        :class="{barrato: todo.done == 'true'}"
+                        :class="{barrato: todo.done == true}"
                         @click="revertDone(i)"
                     >
                         {{todo.text}}

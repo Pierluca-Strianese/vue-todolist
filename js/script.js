@@ -2,21 +2,25 @@ const app = Vue.createApp ({
 
     data () {
         return {
-            newTodo: '',
-            inputError: 'false',
+            newTodoText: '',
+            newTodo: {
+                text: '',
+                done: false,
+            },
+            inputError: false,
             todos: [
                 {
                     text: 'fare esecizio',
-                    done: 'false',
+                    done: false,
                 }, {
                     text: 'fare spesa',
-                    done: 'false',
+                    done: false,
                 },{
                     text: 'fare lavatrice',
-                    done: 'false',
+                    done: false,
                 },{
                     text: 'fare esecizio fisico',
-                    done: 'true',
+                    done: true,
                 },
             ],
         };
@@ -24,13 +28,16 @@ const app = Vue.createApp ({
 
     methods: {
         addTodo() {
-            let cleanedTodo = this.newTodo.trim();
+            let cleanedTodo = this.newTodoText.trim();
             if (cleanedTodo.length >= 5){
-                this.todos.unshift(cleanedTodo);
-                this.newTodo = '';
-                this.inputError = 'false';
+                this.todos.unshift({
+                    text: this.newTodoText,
+                    done: false,
+                });
+                this.newTodoText = '';
+                this.inputError = false;
             } else {
-                this.inputError = 'true';
+                this.inputError = true;
             }
         },
 
